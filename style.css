@@ -1,0 +1,359 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(191, 112, 255, 0.25),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 120, 222, 0.18),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #18052c,
+            #35105c 48%,
+            #160326
+        );
+}
+
+
+
+
+.stars,
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: 0.7;
+
+    animation:
+        twinkle 2.5s
+        infinite
+        ease-in-out;
+}
+
+@keyframes twinkle {
+
+    50% {
+        opacity: 0.15;
+        transform: scale(0.6);
+    }
+
+}
+
+
+.container {
+
+    position: relative;
+
+    z-index: 1;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 18px;
+}
+
+.card {
+
+    width: min(900px, 100%);
+
+    padding: 42px 30px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.22);
+
+    border-radius: 28px;
+
+    background:
+        rgba(255, 255, 255, 0.09);
+
+    backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.35);
+
+    text-align: center;
+}
+
+
+.crown {
+
+    font-size: 45px;
+
+    animation:
+        float 3s
+        ease-in-out
+        infinite;
+}
+
+@keyframes float {
+
+    50% {
+        transform: translateY(-9px);
+    }
+
+}
+
+
+.age {
+
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a855f7,
+            #d946ef
+        );
+
+    font-weight: 600;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(168, 85, 247, 0.3);
+}
+
+
+h1 {
+
+    margin-top: 8px;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(48px, 9vw, 88px);
+
+    line-height: 1;
+
+    color: #f5d5ff;
+
+    text-shadow:
+        0 0 25px
+        rgba(221, 150, 255, 0.55);
+}
+
+
+.subtitle {
+
+    margin: 16px 0 28px;
+
+    color: #ead8f7;
+
+    font-size: 15px;
+}
+
+
+.envelope {
+
+    margin:
+        0 auto 22px;
+
+    width:
+        min(680px, 100%);
+
+    border-radius: 20px;
+
+    padding: 3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c084fc,
+            #f0abfc,
+            #a855f7
+        );
+}
+
+.letter {
+
+    text-align: left;
+
+    padding: 28px 27px;
+
+    border-radius: 18px;
+
+    background: white;
+
+    color: #3b174d;
+
+    line-height: 1.85;
+
+    font-size: 15px;
+}
+
+
+.letter p {
+
+    margin-bottom: 14px;
+
+}
+
+
+.greeting,
+.closing {
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 27px;
+
+    color: #7e22ce;
+}
+
+
+.btn {
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 13px 25px;
+
+    border-radius: 999px;
+
+    color: white;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-weight: 600;
+
+    font-size: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #9333ea,
+            #c026d3
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(147, 51, 234, 0.35);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 14px 35px
+        rgba(192, 38, 211, 0.45);
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    font-size: 20px;
+
+    animation:
+        rise
+        linear
+        forwards;
+
+    opacity: 0.8;
+}
+
+
+@keyframes rise {
+
+    to {
+
+        transform:
+            translateY(-110vh)
+            rotate(25deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .card {
+
+        padding: 30px 15px;
+
+        border-radius: 22px;
+    }
+
+    .letter {
+
+        padding: 22px 19px;
+
+        font-size: 14px;
+    }
+
+}
